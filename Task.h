@@ -14,6 +14,11 @@ private:
   std::string descrizione;
   bool stato = false;
 
+public:
+  //Dichiaro i costruttori, di cui uno di default per avere un Task vuoto
+  Task() = default;
+  Task(int id, std::string descrizione, bool stato);
+
 
 
 };
