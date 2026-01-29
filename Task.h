@@ -12,7 +12,7 @@ class Task {
 private:
   int id = 0;
   std::string descrizione;
-  bool fatto = false;
+  bool stato = false;
 
 
 
