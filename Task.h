@@ -14,6 +14,8 @@ private:
   std::string descrizione;
   bool fatto = false;
 
+
+
 };
 
 
