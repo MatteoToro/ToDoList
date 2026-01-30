@@ -12,3 +12,7 @@ Task::Task(int id, std::string &descrizione, bool stato) : id(id), descrizione(d
 int Task::getId() const {
   return id;
 }
+
+std::string Task::getDescrizione() const {
+  return descrizione;
+}
