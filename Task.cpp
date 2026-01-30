@@ -4,3 +4,6 @@
 
 #include "Task.h"
 #include <iostream>
+
+//Definiamo il coastruttore
+Task::Task(int id, std::string &descrizione, bool stato) : id(id), descrizione(descrizione), stato(stato) {}
