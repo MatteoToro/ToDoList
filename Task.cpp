@@ -20,3 +20,11 @@ std::string Task::getDescrizione() const {
 bool Task::isStato() const {
   return stato;
 }
+
+void Task::segnaFatto() {
+  stato = true;
+}
+
+void Task::segnaNoFatto() {
+  stato = false;
+}
