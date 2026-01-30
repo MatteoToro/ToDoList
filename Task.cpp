@@ -16,3 +16,7 @@ int Task::getId() const {
 std::string Task::getDescrizione() const {
   return descrizione;
 }
+
+bool Task::isStato() const {
+  return stato;
+}
