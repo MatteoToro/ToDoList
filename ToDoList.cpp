@@ -39,3 +39,8 @@ Task* ToDoList::trovaTask(int id){
 const std::vector<Task>& ToDoList::getAll() const {
   return attività;
 }
+
+void ToDoList::clear() {
+  attività.clear();
+  nextId = 1;
+}
