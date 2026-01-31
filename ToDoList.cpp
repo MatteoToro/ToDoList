@@ -36,3 +36,6 @@ Task* ToDoList::trovaTask(int id){
     return nullptr;//Se non si trova si ritorna il puntatore vuoto
   }
 }
+const std::vector<Task>& ToDoList::getAll() const {
+  return attività;
+}
