@@ -17,3 +17,13 @@ bool ToDoList::rimuoviTask(int id){
   }
   return false;
 }
+
+bool ToDoList::segnaFatto(int id){
+  for(auto &a : attività){
+    if(a.getId() == id){
+      a.segnaFatto();
+      return true;
+    }
+  }
+  return false;
+}
