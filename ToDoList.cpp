@@ -27,3 +27,12 @@ bool ToDoList::segnaFatto(int id){
   }
   return false;
 }
+
+Task* ToDoList::trovaTask(int id){
+  for(auto &a : attività){
+    if(a.getId() == id){
+      return &a;//Si deve ritornare un puntatore
+    }
+    return nullptr;//Se non si trova si ritorna il puntatore vuoto
+  }
+}
