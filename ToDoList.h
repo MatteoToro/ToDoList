@@ -14,6 +14,18 @@ class ToDoList {
     std::vector<Task> attività;
     int nextId = 1;//id progressivo
 
+  public:
+    ToDoList() = default;
+
+    void aggiungiTask(const std::string &descrizione);
+    bool rimuoviTask(int id);
+    bool segnaFatto(int id);
+    Task* trovaTask(int id);
+    std::vector<Task>& getAll() const;
+
+    void clear();//Per svuotare la lista e resettare id
+
+
 };
 
 
