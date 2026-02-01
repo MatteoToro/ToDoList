@@ -8,7 +8,7 @@
 #include <string>
 
 //Definiamo il coastruttore
-Task::Task(int id, std::string &descrizione, bool stato) : id(id), descrizione(descrizione), stato(stato) {}
+Task::Task(int id, const std::string &descrizione, bool stato) : id(id), descrizione(descrizione), stato(stato) {}
 
 //Definizione delle funzioni utili
 int Task::getId() const {
