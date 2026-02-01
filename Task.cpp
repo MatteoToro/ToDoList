@@ -33,7 +33,7 @@ void Task::segnaNoFatto() {
 
 std::string Task::convertiInStringa() const {
   std::ostringstream oss;
-  oss << id << " | " <<  (stato ? 1 : 0 )<< " | " << descrizione;
+  oss << id << "|" <<  (stato ? 1 : 0 )<< "|" << descrizione;
   return oss.str();//funzione della libreria sstream
 }
 
