@@ -19,3 +19,23 @@ bool Memoria::salva(const ToDoList &lista, const std::string &nomeFile){
   return true;
 }
 
+
+bool Memoria::carica(ToDoList &lista, const std::string &nomeFile){
+  std::ifstream ifs(nomeFile.c_str());
+  if(!ifs)
+    return false;
+  lista.clear();//svuotiamo la lista esistente per evitare di mescolare dati vecchi e nuovi
+  std::string riga;//Variabile per contare una riga di file alla volta
+  while(std::getline(ifs, riga)){
+    if(riga.empty())
+      continue; //Serve a saltare le righe vuote
+
+    Task t = Task::ricostruisciOggetto(riga); //Converte la riga di testo in un oggetto Task
+
+    lista.aggiungiTask(t.getDescrizione()); //Aggiunge un nuovo task alla lista; assegna un nuovo ID
+    if(t.isStato()){
+      lista.segnaFatto(lista.getAll().back().getId());
+    }
+  }
+  return true;
+}
