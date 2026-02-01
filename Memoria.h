@@ -5,9 +5,14 @@
 #ifndef MEMORIA_H
 #define MEMORIA_H
 
-
+#include "ToDoList.h"
+#include <iostream>
 
 class Memoria {
+public:
+  static bool salva(const ToDoList &lista, const std::string &nomeFile); //Salva la lista di attività su file (restituisce true se salvataggio riuscito)
+
+  static bool carica(ToDoList &lista, const std::string &nomeFile);//carica la lista di attività e ritorna true se tutto ok
 
 };
 
