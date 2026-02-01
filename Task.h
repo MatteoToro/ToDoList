@@ -17,7 +17,7 @@ private:
 public:
   //Dichiaro i costruttori, di cui uno di default per avere un Task vuoto
   Task() = default;
-  Task(int id, std::string &descrizione, bool stato = false);
+  Task(int id, const std::string &descrizione, bool stato = false);
 
 
   //Dichiaro le funzioni che utilizzerò
