@@ -8,6 +8,7 @@
 #include "Task.h"
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 class ToDoList {
   private:
@@ -20,8 +21,8 @@ class ToDoList {
     void aggiungiTask(const std::string &descrizione);
     bool rimuoviTask(int id);
     bool segnaFatto(int id);
-    Task* trovaTask(int id);
-    std::vector<Task>& getAll() const;
+    Task* trovaTask(int id);//Cerca un task e restituisce un puntatore
+    const std::vector<Task>& getAll() const;
 
     void clear();//Per svuotare la lista e resettare id
 
