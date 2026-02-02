@@ -8,46 +8,48 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 enable_testing()
 
 
-find_package(GTest REQUIRED)
+
+include(FetchContent)
+
+FetchContent_Declare(
+        googletest
+        URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+)
+
+# Evita warning su macOS
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(googletest)
+
 
 add_library(todolist_lib
-Task.cpp
-ToDoList.cpp
-Memoria.cpp
+        Task.cpp
+        ToDoList.cpp
+        Memoria.cpp
 )
 
 target_include_directories(todolist_lib PUBLIC
-${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+
 add_executable(main_app
-main.cpp
+        main.cpp
 )
 
 target_link_libraries(main_app
-todolist_lib
+        todolist_lib
 )
 
+
 add_executable(tests
-Test.cpp
+        Test.cpp
 )
 
 target_link_libraries(tests
-todolist_lib
-GTest::gtest
-GTest::gtest_main
+        todolist_lib
+        gtest
+        gtest_main
 )
-
-if(APPLE)
-    target_link_directories(tests PRIVATE
-            /opt/homebrew/lib
-            /usr/local/lib
-    )
-
-    target_link_options(tests PRIVATE
-            -Wl,-rpath,/opt/homebrew/lib
-            -Wl,-rpath,/usr/local/lib
-    )
-endif()
 
 add_test(NAME ToDoListTests COMMAND tests)
