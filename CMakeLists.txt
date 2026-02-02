@@ -7,8 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #Abilità il testing
 enable_testing()
 
-set(BUILD_GMOCK OFF)
-set(BUILD_GTEST ON)
+
 find_package(GTest REQUIRED)
 
 add_library(todolist_lib
@@ -39,4 +38,16 @@ GTest::gtest
 GTest::gtest_main
 )
 
-add_test(NAME ToDoListTest COMMAND tests)
+if(APPLE)
+    target_link_directories(tests PRIVATE
+            /opt/homebrew/lib
+            /usr/local/lib
+    )
+
+    target_link_options(tests PRIVATE
+            -Wl,-rpath,/opt/homebrew/lib
+            -Wl,-rpath,/usr/local/lib
+    )
+endif()
+
+add_test(NAME ToDoListTests COMMAND tests)
