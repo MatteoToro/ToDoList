@@ -16,26 +16,28 @@ int main() {
     if (todo.getAll().empty()) {
         std::cout << "(lista vuota)\n";
     } else {
-        for (const auto &t : todo.getAll()) {
+        for (const auto &t: todo.getAll()) {
             std::cout << t.getId()
-                      << (t.isStato() ? " [x] " : " [ ] ")
-                      << t.getDescrizione()
-                      << "\n";
+                    << (t.isStato() ? " [x] " : " [ ] ")
+                    << t.getDescrizione()
+                    << "\n";
         }
     }
 
+
     // Esempio di utilizzo
-    todo.aggiungiTask("Comprare il latte");
-    todo.aggiungiTask("Studiare C++");
-    todo.aggiungiTask(1);
+    todo.aggiungiTask("Giocare alla play");
+    todo.aggiungiTask("Giocare a calcio");
+    todo.segnaFatto(7);
 
     std::cout << "\nDopo le modifiche:\n";
-    for (const auto &t : todo.getAll()) {
+    for (const auto &t: todo.getAll()) {
         std::cout << t.getId()
-                  << (t.isStato() ? " [x] " : " [ ] ")
-                  << t.getDescrizione()
-                  << "\n";
+                << (t.isStato() ? " [x] " : " [ ] ")
+                << t.getDescrizione()
+                << "\n";
     }
+    //t'odo.clear();
 
     if (!Memoria::salva(todo, "todo.txt")) {
         std::cerr << "Errore nel salvataggio\n";

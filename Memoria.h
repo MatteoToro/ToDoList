@@ -10,12 +10,14 @@
 
 class Memoria {
 public:
-  static bool salva(const ToDoList &lista, const std::string &nomeFile); //Salva la lista di attività su file (restituisce true se salvataggio riuscito)
+    static bool salva(const ToDoList &lista, const std::string &nomeFile);
 
-  static bool carica(ToDoList &lista, const std::string &nomeFile);//carica la lista di attività e ritorna true se tutto ok
+    //Salva la lista di attività su file (restituisce true se salvataggio riuscito)
 
+    static bool carica(ToDoList &lista, const std::string &nomeFile);
+
+    //carica la lista di attività da un file e ritorna true se tutto ok
 };
-
 
 
 #endif //MEMORIA_H

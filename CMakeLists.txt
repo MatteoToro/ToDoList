@@ -4,9 +4,7 @@ project(ToDoList)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-#Abilità il testing
 enable_testing()
-
 
 
 include(FetchContent)
@@ -16,7 +14,6 @@ FetchContent_Declare(
         URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
 )
 
-# Evita warning su macOS
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(googletest)

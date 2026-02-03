@@ -4,43 +4,44 @@
 
 #include "ToDoList.h"
 
-void ToDoList::aggiungiTask(const std::string &descrizione){
-  attivita.push_back(Task(nextId++, descrizione, false));
+void ToDoList::aggiungiTask(const std::string &descrizione) {
+    attivita.push_back(Task(nextId++, descrizione, false));
 }
 
-bool ToDoList::rimuoviTask(int id){
-  for(std::size_t i = 0; i < attivita.size(); i++){
-    if(attivita[i].getId() == id){
-      attivita.erase(attivita.begin() + i);
-      return true;
+bool ToDoList::rimuoviTask(int id) {
+    for (std::size_t i = 0; i < attivita.size(); i++) {
+        if (attivita[i].getId() == id) {
+            attivita.erase(attivita.begin() + i);
+            return true;
+        }
     }
-  }
-  return false;
+    return false;
 }
 
-bool ToDoList::segnaFatto(int id){
-  for(auto &a : attivita){
-    if(a.getId() == id){
-      a.segnaFatto();
-      return true;
+bool ToDoList::segnaFatto(int id) {
+    for (auto &a: attivita) {
+        if (a.getId() == id) {
+            a.segnaFatto();
+            return true;
+        }
     }
-  }
-  return false;
+    return false;
 }
 
-Task* ToDoList::trovaTask(int id){
-  for(auto &a : attivita){
-    if(a.getId() == id){
-      return &a;//Si deve ritornare un puntatore
+Task *ToDoList::trovaTask(int id) {
+    for (auto &a: attivita) {
+        if (a.getId() == id) {
+            return &a; //Si deve ritornare un puntatore
+        }
     }
-  }
-  return nullptr;//Se non si trova si ritorna il puntatore vuoto
+    return nullptr; //Se non si trova si ritorna il puntatore vuoto
 }
-const std::vector<Task>& ToDoList::getAll() const {
-  return attivita;
+
+const std::vector<Task> &ToDoList::getAll() const {
+    return attivita;
 }
 
 void ToDoList::clear() {
-  attivita.clear();
-  nextId = 1;
+    attivita.clear();
+    nextId = 1;
 }
