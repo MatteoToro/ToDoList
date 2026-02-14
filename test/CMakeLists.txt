@@ -12,7 +12,9 @@ enable_testing()
 
 add_executable(tests
         Test.cpp
-        # Test2.cpp
+        TaskTest.cpp
+
+
 )
 
 target_link_libraries(tests
@@ -20,3 +22,5 @@ target_link_libraries(tests
         gtest
         gtest_main
 )
+
+add_test(NAME AllTests COMMAND tests)
