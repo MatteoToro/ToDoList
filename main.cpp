@@ -18,14 +18,14 @@ void legendaComandi() {
 void stampaLista(const ToDoList &todo) {
     const auto &all = todo.getAll();
     if (all.empty()) {
-        std::cout <<"lista vuota" << std::endl;
+        std::cout << "lista vuota" << std::endl;
         return;
     }
     for (const auto &a: all) {
         std::cout << a.getId()
-        << (a.isStato() ? "[x]" : "[ ]")
-        << a.getDescrizione()
-        << std::endl;
+                << (a.isStato() ? "[x]" : "[ ]")
+                << a.getDescrizione()
+                << std::endl;
     }
 }
 
@@ -34,7 +34,7 @@ int main() {
 
     if (Memoria::carica(todo, "todo.txt")) {
         std::cout << "Carciato todo.txt" << std::endl;
-    }else {
+    } else {
         std::cout << "Nessun file todo.txt trovato,creo una nuova lista" << std::endl;
     }
 
@@ -70,10 +70,8 @@ int main() {
                 todo.aggiungiTask(descrizione);
                 std::cout << "Aggiunto: " << descrizione << std::endl;
             }
-
         } else if (cmd == "l") {
             stampaLista(todo);
-
         } else if (cmd == "m") {
             int id;
             if (!(iss >> id)) {
@@ -85,7 +83,6 @@ int main() {
                     std::cout << "Attività con id " << id << " non trovata" << std::endl;
                 }
             }
-
         } else if (cmd == "r") {
             int id;
             if (!(iss >> id)) {
@@ -97,17 +94,14 @@ int main() {
                     std::cout << "Attività con id " << id << " non trovata" << std::endl;
                 }
             }
-
         } else if (cmd == "s") {
             if (Memoria::salva(todo, "todo.txt")) {
                 std::cout << "Salvato in todo.txt" << std::endl;
             } else {
                 std::cerr << "Errore nel salvataggio di todo.txt" << std::endl;
             }
-
         } else if (cmd == "h") {
             legendaComandi();
-
         } else if (cmd == "e") {
             std::cout << "Vuoi salvare le modifiche prima di chiudere? (s/n): ";
             std::string risposta;
@@ -122,9 +116,8 @@ int main() {
                 }
             }
             break;
-
         } else {
             std::cout << "Comando non esistente. Premi h per la legenda" << std::endl;
         }
     }
-    }
+}

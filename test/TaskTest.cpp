@@ -3,16 +3,15 @@
 //
 #include "gtest/gtest.h"
 #include "Task.h"
-#include <cstdio>
 
-TEST(TaskTest, ConstructorAndGetters) {
+TEST(TaskTest, CostruttoreGetters) {
     Task t(5, "Prova", true);
     EXPECT_EQ(t.getId(), 5);
     EXPECT_EQ(t.getDescrizione(), "Prova");
     EXPECT_TRUE(t.isStato());
 }
 
-TEST(TaskTest, MarkAndUnmark) {
+TEST(TaskTest, SegnaFattoSegnaNonFatto) {
     Task t(1, "Da fare", false);
     EXPECT_FALSE(t.isStato());
     t.segnaFatto();
@@ -21,7 +20,7 @@ TEST(TaskTest, MarkAndUnmark) {
     EXPECT_FALSE(t.isStato());
 }
 
-TEST(TaskTest, ConvertAndRebuild) {
+TEST(TaskTest, ConvertieRicostruisci) {
     Task t(10, "Descrizione con | pipe", true);
     std::string s = t.convertiInStringa();
 
@@ -32,7 +31,7 @@ TEST(TaskTest, ConvertAndRebuild) {
     EXPECT_TRUE(r.isStato());
 }
 
-TEST(TaskTest, EmptyDescriptionAndDefaultState) {
+TEST(TaskTest, DescrizioneVuotaeDiDefault) {
     Task t(2, "", false);
     EXPECT_EQ(t.getDescrizione(), "");
     EXPECT_FALSE(t.isStato());
